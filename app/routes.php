@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', function() { return View::make('hello'); });
+
+Route::group([
+	'prefix' => 'admin',
+	'namespace' => 'Admin'
+	],
+
+	function() {
+
+		Route::get('login', ['uses' => 'AuthController@getLogin']);
+
+	}
+);
