@@ -9,7 +9,7 @@ class DeployController extends BaseController {
 
 			Log::info('Deployment procedure done.');
 
-			Reponse::json([
+			Response::json([
 				'status' => 'ok',
 				'message' => 'Everything went well.'
 			], 200);
@@ -17,7 +17,7 @@ class DeployController extends BaseController {
 		} catch (Exception $e) {
 			Log::error('Hey, something went very wrong with deployment.');
 
-			Reponse::json([
+			Response::json([
 				'status' => 'error',
 				'message' => 'Something went very wrong.'
 			], 500);
