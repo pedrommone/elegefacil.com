@@ -40,8 +40,8 @@ class DeployMake extends Command {
 
 		$commands = array(
 			'cd /home/se/web/santosedificacoes.com/',
-	    	'php artisan down',
-	    	'php artisan clear-compiled',
+			'php artisan down',
+			'php artisan clear-compiled',
 			'git pull origin master',
 			'php -d memory_limit=-1 composer install --no-scripts',
 			'php artisan migrate',
@@ -49,7 +49,9 @@ class DeployMake extends Command {
 			'php artisan up'
 		);
 
-		SSH::run($commands);
+		SSH::run($commands, function($line) {
+			Log::info($line);
+		});
 	}
 
 	/**
