@@ -12,15 +12,22 @@
 */
 
 Route::get('/', function() { return View::make('hello'); });
+Route::get('deploy', [
+	'as' => 'internal.deploy',
+	'uses' => 'DeployController@getDeploy'
+]);
 
 Route::group([
-	'prefix' => 'admin',
-	'namespace' => 'Admin'
+		'prefix' => 'admin',
+		'namespace' => 'Admin'
 	],
 
 	function() {
 
-		Route::get('login', ['uses' => 'AuthController@getLogin']);
+		Route::get('login', [
+			'as' => 'admin.login',
+			'uses' => 'AuthController@getLogin'
+		]);
 
 	}
 );
