@@ -43,7 +43,7 @@ class DeployMake extends Command {
 			'php artisan down',
 			'php artisan clear-compiled',
 			'git pull origin master',
-			'php -d memory_limit=-1 composer install --no-scripts',
+			'php -d memory_limit=-1 /usr/bin/composer install --no-scripts',
 			'php artisan migrate',
 			'php artisan optimize',
 			'php artisan up'
