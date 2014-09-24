@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function() { return View::make('hello'); });
-Route::get('deploy', [
+Route::any('deploy', [
 	'as' => 'internal.deploy',
 	'uses' => 'DeployController@getDeploy'
 ]);
