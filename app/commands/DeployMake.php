@@ -39,7 +39,7 @@ class DeployMake extends Command {
 	{
 
 		$commands = array(
-			'cd /home/se/web/santosedificacoes.com/',
+			'cd /home/elegefacil/web/elegefacil.com/',
 			'php artisan down',
 			'php artisan clear-compiled',
 			'git pull origin master',
