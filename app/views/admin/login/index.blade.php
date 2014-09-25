@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Login - Bootstrap Admin Template</title>
+		<title>ElegeFácil</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes"> 
@@ -33,10 +33,10 @@
 					</a>
 					
 					<a class="brand" href="index.html">
-						Bootstrap Admin Template				
+						ElegeFácil
 					</a>		
 					
-					<div class="nav-collapse">
+		<!-- 			<div class="nav-collapse">
 						<ul class="nav pull-right">
 							
 							<li class="">						
@@ -56,7 +56,7 @@
 						</ul>
 						
 					</div><!--/.nav-collapse -->	
-			
+		 -->	
 				</div> <!-- /container -->
 				
 			</div> <!-- /navbar-inner -->
@@ -69,32 +69,32 @@
 				
 				<form action="#" method="post">
 				
-					<h1>Member Login</h1>		
+					<h1>Página administrativa</h1>		
 					
 					<div class="login-fields">
 						
-						<p>Please provide your details</p>
+						<!-- <p>Please provide your details</p> -->
 						
 						<div class="field">
-							<label for="username">Username</label>
-							<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
+							<label for="username">Usuário</label>
+							<input type="text" id="username" name="username" value="" placeholder="Usuário" class="login username-field" />
 						</div> <!-- /field -->
 						
 						<div class="field">
-							<label for="password">Password:</label>
-							<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
+							<label for="password">Senha</label>
+							<input type="password" id="password" name="password" value="" placeholder="Senha" class="login password-field"/>
 						</div> <!-- /password -->
 						
 					</div> <!-- /login-fields -->
 					
 					<div class="login-actions">
 						
-						<span class="login-checkbox">
+						<!-- <span class="login-checkbox">
 							<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
 							<label class="choice" for="Field">Keep me signed in</label>
-						</span>
+						</span> -->
 											
-						<button class="button btn btn-success btn-large">Sign In</button>
+						<button class="button btn btn-success btn-large">Entrar</button>
 						
 					</div> <!-- .actions -->
 					
@@ -108,7 +108,7 @@
 
 
 		<div class="login-extra">
-			<a href="#">Reset Password</a>
+			<a href="#">Recuperar senha</a>
 		</div> <!-- /login-extra -->
 
 		<script src="{{ url('js/jquery-1.7.2.min.js') }}"></script>
