@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function() { return View::make('hello'); });
+Route::get('/', 'Voter\\AuthController@getLogin');
+
 Route::any('deploy', [
 	'as' => 'internal.deploy',
 	'uses' => 'DeployController@getDeploy'
@@ -26,6 +27,21 @@ Route::group([
 
 		Route::get('login', [
 			'as' => 'admin.login',
+			'uses' => 'AuthController@getLogin'
+		]);
+
+	}
+);
+
+Route::group([
+		'prefix' => 'voter',
+		'namespace' => 'voter'
+	],
+
+	function() {
+
+		Route::get('login', [
+			'as' => 'voter.login',
 			'uses' => 'AuthController@getLogin'
 		]);
 

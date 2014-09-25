@@ -69,20 +69,20 @@
 				
 				<form action="#" method="post">
 				
-					<h1>Página administrativa</h1>		
+					<h1>Login do eleitor</h1>		
 					
 					<div class="login-fields">
 						
 						<!-- <p>Please provide your details</p> -->
 						
 						<div class="field">
-							<label for="username">Usuário</label>
-							<input type="text" id="username" name="username" value="" placeholder="Usuário" class="login username-field" />
+							<label for="username">Título de eleitor</label>
+							<input type="text" id="username" name="username" value="" placeholder="Título de eleitor" class="login username-field" />
 						</div> <!-- /field -->
 						
 						<div class="field">
-							<label for="password">Senha</label>
-							<input type="password" id="password" name="password" value="" placeholder="Senha" class="login password-field"/>
+							<label for="password">Data de nascimento</label>
+							<input type="text" id="password" name="password" value="" placeholder="Data de nascimento" class="login password-field"/>
 						</div> <!-- /password -->
 						
 					</div> <!-- /login-fields -->
@@ -98,14 +98,11 @@
 						
 					</div> <!-- .actions -->
 					
-					
-					
 				</form>
 				
 			</div> <!-- /content -->
 			
 		</div> <!-- /account-container -->
-
 
 		<!-- <div class="login-extra">
 			<a href="#">Recuperar senha</a>
