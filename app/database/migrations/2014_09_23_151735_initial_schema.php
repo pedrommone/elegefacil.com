@@ -69,7 +69,7 @@ class InitialSchema extends Migration {
 			$table->foreign('section_id')->references('id')->on('sections');
 		});
 
-		Schema::create('candiate_votes', function($table) {
+		Schema::create('candidate_votes', function($table) {
 			$table->increments('id');
 			$table->unsignedInteger('candidate_id');
 			$table->string('city', 100);
@@ -99,7 +99,7 @@ class InitialSchema extends Migration {
 	public function down()
 	{
 		Schema::drop('voter_votes');
-		Schema::drop('candiate_votes');
+		Schema::drop('candidate_votes');
 		Schema::drop('voters');
 		Schema::drop('sections');
 		Schema::drop('zones');
