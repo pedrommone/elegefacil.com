@@ -19,6 +19,6 @@ class User extends Eloquent implements UserInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password);
+	protected $hidden = array('password');
 
 }
