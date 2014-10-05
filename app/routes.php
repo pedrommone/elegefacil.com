@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Voter\\AuthController@getLogin');
+Route::get('/', function(){ return Redirect::route('voter.login'); });
 
 Route::any('deploy', [
 	'as' => 'internal.deploy',
@@ -35,7 +35,7 @@ Route::group([
 
 Route::group([
 		'prefix' => 'voter',
-		'namespace' => 'voter'
+		'namespace' => 'Voter'
 	],
 
 	function() {
