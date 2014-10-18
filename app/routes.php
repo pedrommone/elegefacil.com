@@ -21,14 +21,25 @@ Route::any('deploy', [
 Route::group([
 		'prefix' => 'admin',
 		'namespace' => 'Admin'
-	],
+	]
 
 	function() {
+
+		Route::get('/', function(){ return Redirect::route('admin.login'); });
 
 		Route::get('login', [
 			'as' => 'admin.login',
 			'uses' => 'AuthController@getLogin'
 		]);
+
+		Route::group(['prefix' => 'candidate-type'], function() {});
+		Route::group(['prefix' => 'candidate-votes'], function() {});
+		Route::group(['prefix' => 'candidate'], function() {});
+		Route::group(['prefix' => 'candidate-parties'], function() {});
+		Route::group(['prefix' => 'sections'], function() {});
+		Route::group(['prefix' => 'users'], function() {});
+		Route::group(['prefix' => 'voters'], function() {});
+		Route::group(['prefix' => 'zones'], function() {});
 
 	}
 );
@@ -40,6 +51,8 @@ Route::group([
 
 	function() {
 
+		Route::get('/', function(){ return Redirect::route('voter.login'); });
+
 		Route::get('login', [
 			'as' => 'voter.login',
 			'uses' => 'AuthController@getLogin'
@@ -48,7 +61,7 @@ Route::group([
 		Route::post('login', [
 			'as' => 'voter.validate',
 			'uses' => 'AuthController@postLogin'
-		]);
+		]);	
 
 		Route::group(['before', 'auth.voter'], function() {
 
