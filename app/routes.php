@@ -32,14 +32,14 @@ Route::group([
 			'uses' => 'AuthController@getLogin'
 		]);
 
-		Route::group(['prefix' => 'candidate-type'], function() {});
-		Route::group(['prefix' => 'candidate-votes'], function() {});
-		Route::group(['prefix' => 'candidate'], function() {});
-		Route::group(['prefix' => 'candidate-parties'], function() {});
-		Route::group(['prefix' => 'sections'], function() {});
-		Route::group(['prefix' => 'users'], function() {});
-		Route::group(['prefix' => 'voters'], function() {});
-		Route::group(['prefix' => 'zones'], function() {});
+		Route::controller('candidate-type', 'CandidateTypeController');
+		Route::controller('candidate-votes', 'CandidateVotesController');
+		Route::controller('candidate', 'CandidateController');
+		Route::controller('candidate-parties', 'CandidatePartiesController');
+		Route::controller('sections', 'SectionsController');
+		Route::controller('users', 'UsersController');
+		Route::controller('voters', 'VotersController');
+		Route::controller('zones', 'ZonesController');
 
 	}
 );
