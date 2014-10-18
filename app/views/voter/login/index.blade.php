@@ -32,7 +32,7 @@
 						<span class="icon-bar"></span>
 					</a>
 					
-					<a class="brand" href="index.html">
+					<a class="brand" href="{{ url('/voter/login') }}">
 						ElegeFácil
 					</a>		
 					
@@ -67,22 +67,29 @@
 			
 			<div class="content clearfix">
 				
-				<form action="#" method="post">
+				<form action="{{ url('voter/login') }}" method="post">
 				
 					<h1>Login do eleitor</h1>		
 					
 					<div class="login-fields">
-						
-						<!-- <p>Please provide your details</p> -->
-						
+						@if (isset($errors))
+							@if ($errors->has())
+								<div class="alert alert-danger">
+									@foreach ($errors->all() as $error)
+										{{ $error }}<br>
+									@endforeach
+								</div>
+							@endif
+						@endif
+
 						<div class="field">
 							<label for="username">Título de eleitor</label>
-							<input type="text" id="username" name="username" value="" placeholder="Título de eleitor" class="login username-field" />
+							<input type="text" id="id" name="id" value="" placeholder="Título de eleitor" class="login username-field" />
 						</div> <!-- /field -->
 						
 						<div class="field">
 							<label for="password">Data de nascimento</label>
-							<input type="text" id="password" name="password" value="" placeholder="Data de nascimento" class="login password-field"/>
+							<input type="text" id="birthday" name="birthday" value="" placeholder="Data de nascimento" class="login password-field"/>
 						</div> <!-- /password -->
 						
 					</div> <!-- /login-fields -->

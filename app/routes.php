@@ -45,5 +45,18 @@ Route::group([
 			'uses' => 'AuthController@getLogin'
 		]);
 
+		Route::post('login', [
+			'as' => 'voter.validate',
+			'uses' => 'AuthController@postLogin'
+		]);
+
+		Route::group(['before', 'auth.voter'], function() {
+
+			Route::get('dashboard', function() {
+				return "dashboard";
+			});
+
+		});
+
 	}
 );

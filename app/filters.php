@@ -48,6 +48,12 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('auth.voter', function() {
+
+	return (Session::get('voter_logged_in') == 1);
+
+});
+
 
 Route::filter('auth.basic', function()
 {
