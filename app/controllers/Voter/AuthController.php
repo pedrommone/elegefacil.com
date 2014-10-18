@@ -36,7 +36,7 @@ class AuthController extends BaseController {
 
 			if ($voter)
 			{
-				\Session::put('logged_in', 1);
+				\Session::put('voter_logged_in', 1);
 				return \Redirect::to('voter/dashboard');
 			}
 			else
