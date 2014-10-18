@@ -1,13 +1,13 @@
 <?php
 
-class Section extends Eloquent {
+class Zone extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'sections';
+	protected $table = 'zones';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
