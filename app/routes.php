@@ -32,14 +32,29 @@ Route::group([
 			'uses' => 'AuthController@getLogin'
 		]);
 
-		Route::controller('candidate-type', 'CandidateTypeController');
-		Route::controller('candidate-votes', 'CandidateVotesController');
-		Route::controller('candidate', 'CandidateController');
-		Route::controller('candidate-parties', 'CandidatePartiesController');
-		Route::controller('sections', 'SectionsController');
-		Route::controller('users', 'UsersController');
-		Route::controller('voters', 'VotersController');
-		Route::controller('zones', 'ZonesController');
+		Route::post('login', [
+			'as' => 'admin.validate',
+			'uses' => 'AuthController@postLogin'
+		]);	
+
+		Route::group(['before', 'admin.voter'], function() {
+
+			Route::get('dashboard', function() {
+				return "admin dashboard";
+			});
+
+			Route::controller('candidate-type', 'CandidateTypeController');
+			Route::controller('candidate-votes', 'CandidateVotesController');
+			Route::controller('candidate', 'CandidateController');
+			Route::controller('candidate-parties', 'CandidatePartiesController');
+			Route::controller('sections', 'SectionsController');
+			Route::controller('users', 'UsersController');
+			Route::controller('voters', 'VotersController');
+			Route::controller('zones', 'ZonesController');
+
+		});
+
+		
 
 	}
 );

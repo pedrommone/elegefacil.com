@@ -32,30 +32,9 @@
 						<span class="icon-bar"></span>
 					</a>
 					
-					<a class="brand" href="index.html">
+					<a class="brand" href="{{ url('/') }}">
 						ElegeFácil
 					</a>		
-					
-		<!-- 			<div class="nav-collapse">
-						<ul class="nav pull-right">
-							
-							<li class="">						
-								<a href="signup.html" class="">
-									Don't have an account?
-								</a>
-								
-							</li>
-							
-							<li class="">						
-								<a href="index.html" class="">
-									<i class="icon-chevron-left"></i>
-									Back to Homepage
-								</a>
-								
-							</li>
-						</ul>
-						
-					</div><!--/.nav-collapse -->	
 
 				</div> <!-- /container -->
 				
@@ -67,11 +46,20 @@
 			
 			<div class="content clearfix">
 				
-				<form action="#" method="post">
+				<form action="{{ url('admin/login') }}" method="post">
 				
 					<h1>Página administrativa</h1>		
 					
 					<div class="login-fields">
+						@if (isset($errors))
+							@if ($errors->has())
+								<div class="alert alert-danger">
+									@foreach ($errors->all() as $error)
+										{{ $error }}<br>
+									@endforeach
+								</div>
+							@endif
+						@endif
 						
 						<!-- <p>Please provide your details</p> -->
 						
