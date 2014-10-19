@@ -1,12 +1,12 @@
 <?php namespace Voter;
 
-use \View as View;
+use \BaseController as BaseController;
+use \Validator as Validator;
+use \Redirect as Redirect;
+use \Session as Session;
 use \Input as Input;
 use \Voter as Voter;
-use \Session as Session;
-use \Redirect as Redirect;
-use \Validator as Validator;
-use \BaseController as BaseController;
+use \View as View;
 
 class AuthController extends BaseController {
 
@@ -36,18 +36,27 @@ class AuthController extends BaseController {
 
 			if ($voter)
 			{
-				\Session::put('voter_logged_in', 1);
-				return \Redirect::to('voter/dashboard');
+				Session::put('voter_logged_in', 1);
+				Session::put('voter_id', $voter->id);
+
+				return Redirect::to('voter/dashboard');
 			}
 			else
 			{
 				$errors = new \Illuminate\Support\MessageBag;
 				$errors->add('error', 'Credenciais inválidas.');
 
-				return \Redirect::back()
+				return Redirect::back()
 					->withErrors($errors);
 			}
 		}
+	}
+
+	public function getLogout() {
+		Session::put('voter_logged_in', 0);
+		Session::put('voter_id', null);
+
+		return Redirect::to('voter/login');
 	}
 
 }
