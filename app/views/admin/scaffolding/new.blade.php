@@ -38,7 +38,7 @@
 											<div class="control-group">
 												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
 												<div class="controls">
-													<input type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" value="{{ Input::old($field, (isset($target) ? $target->$field : null)) }}" name="{{ $field }}">
+													<input type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" value="{{ Input::old($field, (isset($target) ? $target->$field : null)) }}" name="{{ $field }}" placeholder="{{ (isset($prop['placeholder']) ? $prop['placeholder'] : '') }}">
 												</div> <!-- /controls -->
 											</div> <!-- /control-group -->
 										@endif
@@ -58,7 +58,20 @@
 												<div class="controls">
 													<select name="{{ $field }}" id="{{ $field }}">
 														@foreach($models[$prop['model']] as $k => $v)															
-															<option value="{{ $k }}"{{ (isset($target) && $target->$field == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
+															<option value="{{ $k }}"{{ (isset($target) && $target->id == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
+														@endforeach
+													</select>
+												</div> <!-- /controls -->
+											</div> <!-- /control-group -->
+										@endif
+
+										@if ($prop['type'] == 'select')
+											<div class="control-group">
+												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
+												<div class="controls">
+													<select name="{{ $field }}" id="{{ $field }}">
+														@foreach($prop['options'] as $k => $v)															
+															<option value="{{ $k }}"{{ (isset($target) && $target->id == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
 														@endforeach
 													</select>
 												</div> <!-- /controls -->
