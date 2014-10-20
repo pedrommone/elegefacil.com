@@ -1,65 +1,65 @@
 <?php namespace Admin;
 
 use BaseController;
-use Candidate;
-use View;
 
 class CandidatesController extends BaseController {
 
 	protected $model = 'Candidate';
-	protected $title = 'Candidados';
-	
+	protected $title = 'candidatos eleitorais';
+	protected $uri = 'candidates';
+
 	protected $properties = [
 		'id' => [
+			'name' => 'Código',
 			'type' => 'primary_key',
 			'casting' => 'integer',
-			'validation' => null,
-			'show_list' => true
+			'show_list' => true,
 		],
 		'party_id' => [
+			'name' => 'Partido',
 			'type' => 'relationship',
-			'relationship' => 'Party',
 			'casting' => 'integer',
 			'validation' => 'required|integer',
-			'show_list' => false
+			'show_list' => true,
+			'model' => 'Party',
+			'model_desc' => 'abbreviation'
+		],
+		'candidate_type_id' => [
+			'name' => 'Cargo',
+			'type' => 'relationship',
+			'casting' => 'integer',
+			'validation' => 'required|integer',
+			'show_list' => true,
+			'model' => 'CandidateType',
+			'model_desc' => 'type'
 		],
 		'nickname' => [
+			'name' => 'Apelido',
 			'type' => 'text',
 			'casting' => 'string',
 			'validation' => 'required|max:30',
 			'show_list' => true
 		],
 		'full_name' => [
+			'name' => 'Nome',
 			'type' => 'text',
 			'casting' => 'string',
 			'validation' => 'required|max:100',
 			'show_list' => true
 		],
 		'slogan' => [
+			'name' => 'Slogan',
 			'type' => 'text',
 			'casting' => 'string',
 			'validation' => 'required|max:100',
 			'show_list' => true
 		],
 		'picture' => [
-			'type' => 'image',
-			'casting' => 'image',
+			'name' => 'Foto',
+			'type' => 'file',
+			'casting' => 'file',
 			'validation' => 'required',
 			'show_list' => false
 		],
-		'birthday' => [
-			'type' => 'text',
-			'casting' => 'string',
-			'validation' => 'required',
-			'show_list' => false
-		],
-		'candidate_type_id' => [
-			'type' => 'relationship',
-			'relationship' => 'CadidateType',
-			'casting' => 'integer',
-			'validation' => 'required|integer',
-			'show_list' => false
-		]
 	];
-
 }
