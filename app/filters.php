@@ -48,10 +48,15 @@ Route::filter('auth', function()
 	}
 });
 
-Route::filter('auth.voter', function() {
+Route::filter('auth.admin', function()
+{
+	return (! Auth::guest());
+});
 
+
+Route::filter('auth.voter', function()
+{
 	return (Session::get('voter_logged_in', 0) == 1);
-
 });
 
 
