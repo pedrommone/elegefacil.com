@@ -37,12 +37,9 @@ Route::group([
 			'uses' => 'AuthController@postLogin'
 		]);	
 
-		Route::group(['before', 'admin.voter'], function() {
+		Route::group(['before', 'admin.auth'], function() {
 
-			Route::get('dashboard', function() {
-				return "admin dashboard";
-			});
-
+			Route::controller('dashboard', 'DashboardController');
 			Route::controller('candidate-type', 'CandidateTypeController');
 			Route::controller('candidate-votes', 'CandidateVotesController');
 			Route::controller('candidate', 'CandidateController');
@@ -53,8 +50,6 @@ Route::group([
 			Route::controller('zones', 'ZonesController');
 
 		});
-
-		
 
 	}
 );
