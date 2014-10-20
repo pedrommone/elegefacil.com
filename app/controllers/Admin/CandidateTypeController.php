@@ -1,12 +1,6 @@
 <?php namespace Admin;
 
 use BaseController;
-use Validator;
-use Redirect;
-use Session;
-use Input;
-use View;
-use User;
 
 class CandidateTypeController extends BaseController {
 
