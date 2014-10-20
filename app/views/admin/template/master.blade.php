@@ -92,8 +92,8 @@
 							</a>
 						</li>
 
-						<li{{ (Request::segment(2) == 'candidate' ? ' class="active"' : null) }}>
-							<a href="{{ url('admin/candidate') }}">
+						<li{{ (Request::segment(2) == 'candidates' ? ' class="active"' : null) }}>
+							<a href="{{ url('admin/candidates') }}">
 								<i class="icon-list-alt"></i>
 								<span>Candidatos</span>
 							</a>
