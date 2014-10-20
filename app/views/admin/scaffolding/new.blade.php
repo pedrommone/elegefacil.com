@@ -76,7 +76,7 @@
 												<div class="controls">
 													<select name="{{ $field }}" id="{{ $field }}">
 														@foreach($models[$prop['model']] as $k => $v)															
-															<option value="{{ $k }}"{{ (isset($target) && $target->id == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
+															<option value="{{ $k }}"{{ (isset($target) && $target->$field == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
 														@endforeach
 													</select>
 												</div> <!-- /controls -->
@@ -89,7 +89,7 @@
 												<div class="controls">
 													<select name="{{ $field }}" id="{{ $field }}">
 														@foreach($prop['options'] as $k => $v)															
-															<option value="{{ $k }}"{{ (isset($target) && $target->id == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
+															<option value="{{ $k }}"{{ (isset($target) && $target->$field == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
 														@endforeach
 													</select>
 												</div> <!-- /controls -->
