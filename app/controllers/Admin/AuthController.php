@@ -14,6 +14,9 @@ class AuthController extends BaseController {
 	public function getLogin()
 	{
 
+		if (! Auth::guest())
+			return Redirect::to('admin/dashboard');
+		
 		return View::make('admin.login.index');
 	}
 
