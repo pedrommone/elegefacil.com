@@ -71,56 +71,56 @@
 			<div class="subnavbar-inner">
 				<div class="container">
 					<ul class="mainnav">
-						<li class="active">
+						<li{{ (Request::segment(2) == 'dashboard' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/dashboard') }}">
 								<i class="icon-dashboard"></i>
 								<span>Dashboard</span>
 							</a>
 						</li>
 
-						<li>
+						<li{{ (Request::segment(2) == 'relatorios' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/relatorios') }}">
 								<i class="icon-list-alt"></i>
 								<span>Relatórios</span>
 							</a>
 						</li>
 
-						<li>
+						<li{{ (Request::segment(2) == 'candidate-type' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/candidate-type') }}">
 								<i class="icon-list-alt"></i>
 								<span>Tipos de candidato</span>
 							</a>
 						</li>
 
-						<li>
+						<li{{ (Request::segment(2) == 'candidate' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/candidate') }}">
 								<i class="icon-list-alt"></i>
 								<span>Candidatos</span>
 							</a>
 						</li>
 
-						<li>
+						<li{{ (Request::segment(2) == 'sections' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/sections') }}">
 								<i class="icon-list-alt"></i>
 								<span>Sessões</span>
 							</a>
 						</li>
 
-						<li>
+						<li{{ (Request::segment(2) == 'users' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/users') }}">
 								<i class="icon-list-alt"></i>
 								<span>Usuários</span>
 							</a>
 						</li>
 
-						<li>
+						<li{{ (Request::segment(2) == 'voters' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/voters') }}">
 								<i class="icon-list-alt"></i>
 								<span>Eleitores</span>
 							</a>
 						</li>
 
-						<li>
+						<li{{ (Request::segment(2) == 'zones' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/zones') }}">
 								<i class="icon-list-alt"></i>
 								<span>Zonas Eleitorais</span>

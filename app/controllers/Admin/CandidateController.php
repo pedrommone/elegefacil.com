@@ -6,9 +6,10 @@ use View;
 
 class CandidateController extends BaseController {
 
-	private $model = 'Candidate';
-	private $title = 'Candidados';
-	private $properties = [
+	protected $model = 'Candidate';
+	protected $title = 'Candidados';
+	
+	protected $properties = [
 		'id' => [
 			'type' => 'primary_key',
 			'casting' => 'integer',
@@ -60,19 +61,5 @@ class CandidateController extends BaseController {
 			'show_list' => false
 		]
 	];
-
-	public function getIndex()
-	{
-
-		return View::make('admin.scaffolding.list', [
-			'title' => $this->title,
-			'data' => (new $this->model)->all()
-		]);
-	}
-
-	public function getNew() { return "new"; }
-	public function postStore() { return "store"; }
-	public function getEdit() { return "edit"; }
-	public function getView() { return "view"; }
 
 }

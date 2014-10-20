@@ -1,21 +1,24 @@
 <?php namespace Admin;
 
 use \BaseController as BaseController;
-use \Validator as Validator;
-use \Redirect as Redirect;
-use \Session as Session;
-use \Input as Input;
-use \View as View;
-use \User as User;
+use Validator;
+use Redirect;
+use Session;
+use Input;
+use View;
+use User;
 
 class AuthController extends BaseController {
 
-	public function getLogin() {
+	public function getLogin()
+	{
+
 		return View::make('admin.login.index');
 	}
 
 	public function postLogin()
 	{
+
 		$validator = Validator::make(Input::all(),
 			array('username' => 'required'),
 			array('password' => 'required')
@@ -51,7 +54,9 @@ class AuthController extends BaseController {
 		}
 	}
 
-	public function getLogout() {
+	public function getLogout()
+	{
+
 		Session::put('admin_logged_in', 0);
 		Session::put('admin_id', null);
 
