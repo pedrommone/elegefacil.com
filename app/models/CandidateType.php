@@ -7,7 +7,14 @@ class CandidateType extends Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'candidates_type';
+	protected $table = 'candidate_types';
+
+	/**
+	 * Make laravel ignore timestamps
+	 *
+	 * @var bool
+	 */
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.
