@@ -16,6 +16,7 @@
 
 		<link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ url('css/pages/dashboard.css') }}" rel="stylesheet" type="text/css">
+		<link href="{{ url('css/pages/reports.css') }}" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
@@ -78,8 +79,8 @@
 							</a>
 						</li>
 
-						<li{{ (Request::segment(2) == 'relatorios' ? ' class="active"' : null) }}>
-							<a href="{{ url('admin/relatorios') }}">
+						<li{{ (Request::segment(2) == 'reports' ? ' class="active"' : null) }}>
+							<a href="{{ url('admin/reports') }}">
 								<i class="icon-signal"></i>
 								<span>Relatórios</span>
 							</a>
@@ -161,7 +162,7 @@
 					</div>
 				@endif
 
-				</div>
+			</div>
 		</div>
 
 		<!-- /subnavbar -->
@@ -192,8 +193,7 @@
 		<script src="{{ url('js/excanvas.min.js') }}"></script> 
 		<script src="{{ url('js/chart.min.js') }}" type="text/javascript"></script> 
 		<script src="{{ url('js/bootstrap.js') }}"></script>
-		<script language="javascript" type="text/javascript" src="{{ url('js/full-calendar/fullcalendar.min.js') }}"></script>
-
+		<script src="{{ url('js/full-calendar/fullcalendar.min.js') }}"></script>
 		<script src="{{ url('js/base.js') }}"></script> 
 		<script>     
 
