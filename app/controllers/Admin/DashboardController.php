@@ -7,7 +7,7 @@ class DashboardController extends BaseController {
 
 	public function getIndex()
 	{
-		return View::make('admin.template.master');
+		return View::make('admin.dashboard.index');
 	}
 
 }
