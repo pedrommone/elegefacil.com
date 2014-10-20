@@ -1284,3 +1284,11 @@ color: #333;
 	
 }
 
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+
+.button-actions-holder {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
