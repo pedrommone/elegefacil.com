@@ -6,7 +6,10 @@
 
 			<div class="row button-actions-holder">
 				<div class="span12 text-right">
-					<a class="text-right btn btn-warning" href="{{ url("admin/$uri") }}">Voltar</a>
+					<a class="text-right btn" href="{{ url("admin/$uri/edit/$target->id") }}">Editar</a>
+					<a class="text-right btn" href="{{ url("admin/$uri/new") }}">Adicionar novo</a>
+					<a class="text-right btn" href="{{ url("admin/$uri/delete") }}">Excluir</a>
+					<a class="text-right btn" href="{{ url("admin/$uri") }}">Voltar</a>
 				</div>
 			</div>
 

@@ -6,7 +6,7 @@
 
 			<div class="row button-actions-holder">
 				<div class="span12 text-right">
-					<a class="text-right btn btn-warning" href="{{ url("admin/$uri/new") }}">Adicionar novo</a>
+					<a class="text-right btn" href="{{ url("admin/$uri/new") }}">Adicionar novo</a>
 				</div>
 			</div>
 
@@ -54,16 +54,16 @@
 												@endforeach
 
 												<td class="td-actions">
-													<a href="{{ url("admin/$uri/view/$row->id") }}" class="btn btn-small btn-success">
-														<i class="btn-icon-only icon-ok"></i>
+													<a href="{{ url("admin/$uri/view/$row->id") }}" class="btn btn-small btn-success" title="Ver">
+														<i class="btn-icon-only icon-share-alt"></i>
 													</a>
 
-													<a href="{{ url("admin/$uri/edit/$row->id") }}" class="btn btn-small btn-warning">
-														<i class="btn-icon-only icon-ok"></i>
+													<a href="{{ url("admin/$uri/edit/$row->id") }}" class="btn btn-small btn-warning" title="Editar">
+														<i class="btn-icon-only icon-edit"></i>
 													</a>
 
-													<a href="{{ url("admin/$uri/delete/$row->id") }}" class="btn btn-danger btn-small">
-														<i class="btn-icon-only icon-remove"></i>
+													<a href="{{ url("admin/$uri/delete/$row->id") }}" class="btn btn-danger btn-small" title="Remover">
+														<i class="btn-icon-only icon-trash"></i>
 													</a>
 												</td>
 											</tr>
@@ -83,7 +83,7 @@
 
 			<div class="row">
 				<div class="span12 text-right">
-					<a class="text-right btn btn-warning" href="{{ url("admin/$uri/new") }}">Adicionar novo</a>
+					<a class="text-right btn" href="{{ url("admin/$uri/new") }}">Adicionar novo</a>
 				</div>
 			</div>
 

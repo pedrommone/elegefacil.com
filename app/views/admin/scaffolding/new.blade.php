@@ -6,7 +6,11 @@
 
 			<div class="row button-actions-holder">
 				<div class="span12 text-right">
-					<a class="text-right btn btn-warning" href="{{ url("admin/$uri") }}">Voltar</a>
+					@if (isset($target))
+						<a class="text-right btn" href="{{ url("admin/$uri/new") }}">Adicionar novo</a>
+					@endif
+
+					<a class="text-right btn" href="{{ url("admin/$uri") }}">Voltar</a>
 				</div>
 			</div>
 
