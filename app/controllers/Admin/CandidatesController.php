@@ -4,7 +4,7 @@ use BaseController;
 use Candidate;
 use View;
 
-class CandidateController extends BaseController {
+class CandidatesController extends BaseController {
 
 	protected $model = 'Candidate';
 	protected $title = 'Candidados';
