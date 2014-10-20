@@ -25,7 +25,7 @@ Route::group([
 
 	function() {
 
-		Route::get('/', function(){ return Redirect::route('admin.login'); });
+		Route::get('/', function() { return Redirect::route('admin.login'); });
 
 		Route::get('login', [
 			'as' => 'admin.login',
@@ -48,6 +48,7 @@ Route::group([
 			Route::controller('users', 'UsersController');
 			Route::controller('voters', 'VotersController');
 			Route::controller('zones', 'ZonesController');
+			Route::controller('parties', 'PartiesController');
 
 		});
 
