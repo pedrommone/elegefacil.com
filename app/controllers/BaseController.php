@@ -121,7 +121,29 @@ class BaseController extends Controller {
 							break;
 
 						case 'password':
-							$obj->$key = Hash::make(Input::get($key));
+								$obj->$key = Hash::make(Input::get($key));
+							break;
+
+						case 'file':
+								$upload = Input::file($key);
+
+								if ($upload->isValid())
+								{
+									$ext = $upload->getClientOriginalExtension();
+									$fileName = Str::random(90) . ".$ext";
+									
+									$upload->move(app_path() . '/../www/uploads', $fileName);
+
+									$obj->$key = $fileName;
+								}
+								else
+								{
+									$bag = new \Illuminate\Support\MessageBag;
+									$bag->add('error', 'Erro com o upload de imagem.');
+
+									return Redirect::to("admin/$this->uri")
+										->withErrors($bag);
+								}
 							break;
 
 						default:

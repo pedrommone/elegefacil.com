@@ -21,7 +21,7 @@
 
 						<div class="widget-content">
 							
-							<form method="post" action="{{ url("admin/$uri/store") }}" id="add-form" class="form-horizontal" style="margin: 10px 0 0 0;">
+							<form method="post" action="{{ url("admin/$uri/store") }}" id="add-form" class="form-horizontal" style="margin: 10px 0 0 0;" enctype="multipart/form-data">
 								<fieldset>
 									@foreach ($properties as $field => $prop)	
 										@if ($prop['type'] == 'primary_key' && isset($target))
@@ -39,6 +39,24 @@
 												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
 												<div class="controls">
 													<input type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" value="{{ Input::old($field, (isset($target) ? $target->$field : null)) }}" name="{{ $field }}" placeholder="{{ (isset($prop['placeholder']) ? $prop['placeholder'] : '') }}">
+												</div> <!-- /controls -->
+											</div> <!-- /control-group -->
+										@endif
+
+										@if ($prop['type'] == 'file')
+											<div class="control-group">
+												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
+												<div class="controls">
+													<input type="file" name="{{ $field }}" id="{{ $field }}">
+												</div> <!-- /controls -->
+											</div> <!-- /control-group -->
+										@endif
+
+										@if ($prop['type'] == 'textarea')
+											<div class="control-group">
+												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
+												<div class="controls">
+													<textarea style="height: 100px;" type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" name="{{ $field }}" placeholder="{{ (isset($prop['placeholder']) ? $prop['placeholder'] : '') }}">{{ Input::old($field, (isset($target) ? $target->$field : null)) }}</textarea>
 												</div> <!-- /controls -->
 											</div> <!-- /control-group -->
 										@endif

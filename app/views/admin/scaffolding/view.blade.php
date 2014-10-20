@@ -24,7 +24,14 @@
 								@foreach($properties as $prop => $value)
 									@if(! isset($value['hide_view']))
 										<dt>{{ $value['name'] }}</dt>
-										<dd>{{ $target->$prop }}</dd>
+										
+										@if ($value['type'] == 'select')
+											<dd>{{ $value['options'][$target->$prop] }}</dd>
+										@elseif ($value['type'] == 'file')
+											<dd><img src="{{ asset('uploads/' . $target->$prop) }}"></dd>
+										@else
+											<dd>{{ $target->$prop }}</dd>
+										@endif
 									@endif
 								@endforeach
 							</dl>
