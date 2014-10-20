@@ -34,12 +34,16 @@
 								</thead>
 
 								<tbody>
-									@if(count($data) > 0)
-										@foreach($data as $row)
+									@if (count($data) > 0)
+										@foreach ($data as $row)
 											<tr>
-												@foreach($properties as $column => $value)
-													@if($value['show_list'] === true)
-														<td>{{ $row->$column }}</td>
+												@foreach ($properties as $column => $value)
+													@if ($value['show_list'] === true)
+														@if ($value['type'] == 'select')
+															<td>{{ $value['options'][$row->$column] }}</td>
+														@else
+															<td>{{ $row->$column }}</td>
+														@endif
 													@endif
 												@endforeach
 
