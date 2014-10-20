@@ -24,5 +24,4 @@ class CandidateTypeController extends BaseController {
 			'show_list' => true
 		]
 	];
-
 }

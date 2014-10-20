@@ -1,7 +1,7 @@
 <?php namespace Admin;
 
-use \BaseController as BaseController;
-use \View as View;
+use BaseController;
+use View;
 
 class DashboardController extends BaseController {
 
@@ -9,5 +9,4 @@ class DashboardController extends BaseController {
 	{
 		return View::make('admin.dashboard.index');
 	}
-
 }

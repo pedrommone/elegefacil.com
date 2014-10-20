@@ -1,6 +1,6 @@
 <?php namespace Admin;
 
-use \BaseController as BaseController;
+use BaseController;
 use Candidate;
 use View;
 

@@ -1,9 +1,7 @@
 <?php namespace Admin;
 
-use \BaseController as BaseController;
-use \View as View;
+use BaseController;
 
 class CandidatePartiesController extends BaseController {
-
 
 }

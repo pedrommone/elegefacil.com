@@ -31,5 +31,4 @@ class ZonesController extends BaseController {
 			'show_list' => true
 		]
 	];
-
 }

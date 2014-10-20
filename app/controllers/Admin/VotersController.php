@@ -48,5 +48,4 @@ class VotersController extends BaseController {
 			'show_list' => true
 		]
 	];
-
 }

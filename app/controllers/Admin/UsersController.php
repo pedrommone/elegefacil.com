@@ -32,5 +32,4 @@ class UsersController extends BaseController {
 			'hide_view' => true
 		]
 	];
-
 }

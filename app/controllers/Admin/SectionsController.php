@@ -32,5 +32,4 @@ class SectionsController extends BaseController {
 			'show_list' => true
 		]
 	];
-
 }

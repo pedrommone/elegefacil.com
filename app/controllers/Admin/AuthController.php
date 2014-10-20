@@ -1,6 +1,6 @@
 <?php namespace Admin;
 
-use \BaseController as BaseController;
+use BaseController;
 use Validator;
 use Redirect;
 use Session;
@@ -62,5 +62,4 @@ class AuthController extends BaseController {
 
 		return Redirect::to('admin/login');
 	}
-
 }
