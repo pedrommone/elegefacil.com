@@ -94,16 +94,31 @@ class CandidateTypeController extends BaseController {
 		{
 			$obj = (new $this->model);
 
-			foreach ($this->properties as $key => $value)
-				$obj->$key = Input::get($key);
+			if (Input::has('id'))
+				$obj = (new $this->model)->find(Input::get('id'));
 
-			$obj->save();
+			if ($obj)
+			{
+				foreach ($this->properties as $key => $value)
+					if ($value['type'] != 'primary_key')
+						$obj->$key = Input::get($key);
 
-			$bag = new \Illuminate\Support\MessageBag;
-			$bag->add('success', 'Adicionado com sucesso.');
+				$obj->save();
 
-			return Redirect::to("admin/$this->uri")
-				->with('success', $bag);
+				$bag = new \Illuminate\Support\MessageBag;
+				$bag->add('success', 'Adicionado com sucesso.');
+
+				return Redirect::to("admin/$this->uri")
+					->with('success', $bag);
+			}
+			else
+			{
+				$bag = new \Illuminate\Support\MessageBag;
+				$bag->add('error', 'Código inválido.');
+
+				return Redirect::to("admin/$this->uri")
+					->withErrors($bag);
+			}
 		}
 	}
 
@@ -130,6 +145,27 @@ class CandidateTypeController extends BaseController {
 		}
 	}
 
-	public function getEdit() { return "edit"; }
+	public function getEdit($id)
+	{
+		$target = (new $this->model)->find($id);
+
+		if ($target)
+		{
+			return View::make('admin.scaffolding.new', [
+				'uri' => $this->uri,
+				'title' => $this->title,
+				'properties' => $this->properties,
+				'target' => $target
+			]);
+		}
+		else
+		{
+			$bag = new \Illuminate\Support\MessageBag;
+			$bag->add('error', 'Código inválido.');
+
+			return Redirect::to("admin/$this->uri")
+				->withErrors($bag);
+		}
+	}
 
 }
