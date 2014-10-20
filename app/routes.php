@@ -35,9 +35,14 @@ Route::group([
 		Route::post('login', [
 			'as' => 'admin.validate',
 			'uses' => 'AuthController@postLogin'
-		]);	
+		]);
 
-		Route::group(['before', 'admin.auth'], function() {
+		Route::get('logout', [
+			'as' => 'admin.logout',
+			'uses' => 'AuthController@getLogout'
+		]);
+
+		Route::group(['before' => 'auth.admin'], function() {
 
 			Route::controller('dashboard', 'DashboardController');
 			Route::controller('candidate-type', 'CandidateTypeController');
@@ -49,6 +54,7 @@ Route::group([
 			Route::controller('voters', 'VotersController');
 			Route::controller('zones', 'ZonesController');
 			Route::controller('parties', 'PartiesController');
+			Route::controller('reports', 'ReportsController');
 
 		});
 
@@ -74,7 +80,7 @@ Route::group([
 			'uses' => 'AuthController@postLogin'
 		]);	
 
-		Route::group(['before', 'auth.voter'], function() {
+		Route::group(['before' => 'auth.voter'], function() {
 
 			Route::get('dashboard', function() {
 				return "dashboard";

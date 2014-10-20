@@ -6,6 +6,7 @@ use Redirect;
 use Session;
 use Input;
 use View;
+use Auth;
 use User;
 
 class AuthController extends BaseController {
@@ -31,20 +32,18 @@ class AuthController extends BaseController {
 		}
 		else
 		{
-			$user = User::where([
+
+			if (Auth::attempt([
 				'username' => Input::get('username'),
 				'password' => Input::get('password')
-			])->first();
-
-			if ($user)
+			]))
 			{
-				Session::put('admin_logged_in', 1);
-				Session::put('admin_id', $user->id);
 
 				return Redirect::to('admin/dashboard');
 			}
 			else
 			{
+
 				$errors = new \Illuminate\Support\MessageBag;
 				$errors->add('error', 'Credenciais inválidas.');
 
@@ -57,8 +56,7 @@ class AuthController extends BaseController {
 	public function getLogout()
 	{
 
-		Session::put('admin_logged_in', 0);
-		Session::put('admin_id', null);
+		Auth::logout();
 
 		return Redirect::to('admin/login');
 	}
