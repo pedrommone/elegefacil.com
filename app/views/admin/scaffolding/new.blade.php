@@ -24,7 +24,7 @@
 							<form method="post" action="{{ url("admin/$uri/store") }}" id="add-form" class="form-horizontal" style="margin: 10px 0 0 0;">
 								<fieldset>
 									@foreach ($properties as $field => $prop)	
-										@if ($prop['type'] == 'primary_key')
+										@if ($prop['type'] == 'primary_key' && isset($target))
 											<div class="control-group">											
 												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
 												<div class="controls">
