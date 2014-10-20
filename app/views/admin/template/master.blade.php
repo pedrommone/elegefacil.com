@@ -133,6 +133,30 @@
 			<!-- /subnavbar-inner --> 
 		</div>
 
+		<div class="main-inner">
+			<div class="container">
+							
+				@if (isset($errors))
+					@if ($errors->has())
+						<div class="alert alert-danger">
+							@foreach ($errors->all() as $error)
+								{{ $error }}<br>
+							@endforeach
+						</div>
+					@endif
+				@endif
+
+				@if (Session::has('success'))
+					<div class="alert alert-success">
+						@foreach (Session::get('success')->all() as $bag)
+							{{ $bag }}<br>
+						@endforeach
+					</div>
+				@endif
+
+				</div>
+		</div>
+
 		<!-- /subnavbar -->
 		<div class="main">
 			@yield('content')
