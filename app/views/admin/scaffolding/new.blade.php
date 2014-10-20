@@ -34,11 +34,33 @@
 											</div> <!-- /control-group -->
 										@endif
 
-										@if ($prop['type'] == 'text' || $prop['type'] == 'password')
+										@if ($prop['type'] == 'text')
 											<div class="control-group">
 												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
 												<div class="controls">
 													<input type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" value="{{ Input::old($field, (isset($target) ? $target->$field : null)) }}" name="{{ $field }}">
+												</div> <!-- /controls -->
+											</div> <!-- /control-group -->
+										@endif
+
+										@if ($prop['type'] == 'password')
+											<div class="control-group">
+												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
+												<div class="controls">
+													<input type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" name="{{ $field }}">
+												</div> <!-- /controls -->
+											</div> <!-- /control-group -->
+										@endif
+
+										@if ($prop['type'] == 'relationship')
+											<div class="control-group">
+												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
+												<div class="controls">
+													<select name="{{ $field }}" id="{{ $field }}">
+														@foreach($models[$prop['model']] as $k => $v)															
+															<option value="{{ $k }}"{{ (isset($target) && $target->$field == $k ? ' selected="selected"' : '') }}>{{ $v }}</option>
+														@endforeach
+													</select>
 												</div> <!-- /controls -->
 											</div> <!-- /control-group -->
 										@endif

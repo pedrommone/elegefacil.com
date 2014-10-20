@@ -68,10 +68,17 @@ class BaseController extends Controller {
 	public function getNew()
 	{
 
+		$models = [];
+
+		foreach ($this->properties as $pop => $val)
+			if ($val['type'] == 'relationship')
+				$models[$val['model']] = (new $val['model'])->lists($val['model_desc'], 'id');
+
 		return View::make('admin.scaffolding.new', [
 			'uri' => $this->uri,
 			'title' => $this->title,
-			'properties' => $this->properties
+			'properties' => $this->properties,
+			'models' => $models
 		]);
 	}
 
@@ -85,9 +92,10 @@ class BaseController extends Controller {
 		$validate_rules = [];
 
 		foreach ($this->properties as $k => $v)
-			$validate_rules = [
-				$k => $v['validation']
-			];
+			if (isset($v['validation']))
+				$validate_rules = [
+					$k => $v['validation']
+				];
 
 		$validator = Validator::make(Input::all(), $validate_rules);
 
@@ -178,11 +186,18 @@ class BaseController extends Controller {
 
 		if ($target)
 		{
+			$models = [];
+
+			foreach ($this->properties as $pop => $val)
+				if ($val['type'] == 'relationship')
+					$models[$val['model']] = (new $val['model'])->lists($val['model_desc'], 'id');
+
 			return View::make('admin.scaffolding.new', [
 				'uri' => $this->uri,
 				'title' => $this->title,
 				'properties' => $this->properties,
-				'target' => $target
+				'target' => $target,
+				'models' => $models
 			]);
 		}
 		else

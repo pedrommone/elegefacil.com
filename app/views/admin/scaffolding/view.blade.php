@@ -22,8 +22,10 @@
 						<div class="widget-content">
 							<dl class="dl-horizontal">
 								@foreach($properties as $prop => $value)
-									<dt>{{ $value['name'] }}</dt>
-									<dd>{{ $target->$prop }}</dd>
+									@if(! isset($value['hide_view']))
+										<dt>{{ $value['name'] }}</dt>
+										<dd>{{ $target->$prop }}</dd>
+									@endif
 								@endforeach
 							</dl>
 						</div>
