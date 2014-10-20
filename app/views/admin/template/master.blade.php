@@ -80,7 +80,7 @@
 
 						<li{{ (Request::segment(2) == 'relatorios' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/relatorios') }}">
-								<i class="icon-list-alt"></i>
+								<i class="icon-signal"></i>
 								<span>Relatórios</span>
 							</a>
 						</li>
