@@ -33,30 +33,36 @@
 									</tr>
 								</thead>
 
-								<tbody>									
-									@foreach($data as $row)
+								<tbody>
+									@if(count($data) > 0)
+										@foreach($data as $row)
+											<tr>
+												@foreach($properties as $column => $value)
+													@if($value['show_list'] === true)
+														<td>{{ $row->$column }}</td>
+													@endif
+												@endforeach
+
+												<td class="td-actions">
+													<a href="{{ url("admin/$uri/view/$row->id") }}" class="btn btn-small btn-success">
+														<i class="btn-icon-only icon-ok"></i>
+													</a>
+
+													<a href="{{ url("admin/$uri/edit/$row->id") }}" class="btn btn-small btn-warning">
+														<i class="btn-icon-only icon-ok"></i>
+													</a>
+
+													<a href="{{ url("admin/$uri/delete/$row->id") }}" class="btn btn-danger btn-small">
+														<i class="btn-icon-only icon-remove"></i>
+													</a>
+												</td>
+											</tr>
+										@endforeach
+									@else
 										<tr>
-											@foreach($properties as $column => $value)
-												@if($value['show_list'] === true)
-													<td>{{ $row->$column }}</td>
-												@endif
-											@endforeach
-
-											<td class="td-actions">
-												<a href="{{ url("admin/$uri/view/$row->id") }}" class="btn btn-small btn-success">
-													<i class="btn-icon-only icon-ok"></i>
-												</a>
-
-												<a href="{{ url("admin/$uri/edit/$row->id") }}" class="btn btn-small btn-warning">
-													<i class="btn-icon-only icon-ok"></i>
-												</a>
-
-												<a href="{{ url("admin/$uri/delete/$row->id") }}" class="btn btn-danger btn-small">
-													<i class="btn-icon-only icon-remove"></i>
-												</a>
-											</td>
+											<td colspan="{{ count($properties)+1 }}">Não existem dados para exibir.</td>
 										</tr>
-									@endforeach
+									@endif
 								</tbody>
 							</table>
 						</div>
