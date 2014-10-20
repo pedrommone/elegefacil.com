@@ -107,8 +107,18 @@ class BaseController extends Controller {
 			if ($obj)
 			{
 				foreach ($this->properties as $key => $value)
-					if ($value['type'] != 'primary_key')
-						$obj->$key = Input::get($key);
+					switch ($value['type'])
+					{
+						case 'primary_key':
+							break;
+
+						case 'password':
+							$obj->$key = Hash::make(Input::get($key));
+							break;
+
+						default:
+							$obj->$key = Input::get($key);
+					}
 
 				$obj->save();
 
@@ -184,6 +194,5 @@ class BaseController extends Controller {
 				->withErrors($bag);
 		}
 	}
-
 
 }

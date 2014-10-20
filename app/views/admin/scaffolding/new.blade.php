@@ -25,7 +25,7 @@
 								<fieldset>
 									@foreach ($properties as $field => $prop)	
 										@if ($prop['type'] == 'primary_key' && isset($target))
-											<div class="control-group">											
+											<div class="control-group">
 												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
 												<div class="controls">
 													<input type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" value="{{ Input::old($field, (isset($target) ? $target->$field : null)) }}" name="{{ $field }}" disabled="true">
@@ -34,8 +34,8 @@
 											</div> <!-- /control-group -->
 										@endif
 
-										@if ($prop['type'] == 'text')							
-											<div class="control-group">											
+										@if ($prop['type'] == 'text' || $prop['type'] == 'password')
+											<div class="control-group">
 												<label class="control-label" for="{{ $field }}">{{ $prop['name'] }}</label>
 												<div class="controls">
 													<input type="{{ $prop['type'] }}" class="span4" id="{{ $field }}" value="{{ Input::old($field, (isset($target) ? $target->$field : null)) }}" name="{{ $field }}">
