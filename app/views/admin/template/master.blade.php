@@ -99,10 +99,17 @@
 							</a>
 						</li>
 
+						<li{{ (Request::segment(2) == 'parties' ? ' class="active"' : null) }}>
+							<a href="{{ url('admin/parties') }}">
+								<i class="icon-list-alt"></i>
+								<span>Partidos</span>
+							</a>
+						</li>
+
 						<li{{ (Request::segment(2) == 'sections' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/sections') }}">
 								<i class="icon-list-alt"></i>
-								<span>Sessões</span>
+								<span>Seções</span>
 							</a>
 						</li>
 
