@@ -39,11 +39,17 @@
 											<tr>
 												@foreach ($properties as $column => $value)
 													@if ($value['show_list'] === true)
-														@if ($value['type'] == 'select')
-															<td>{{ $value['options'][$row->$column] }}</td>
-														@else
-															<td>{{ $row->$column }}</td>
-														@endif
+														<td>
+															@if ($value['type'] == 'select')
+																{{ $value['options'][$row->$column] }}
+															@elseif ($value['type'] == 'file')
+																<img src="{{ asset('uploads/' . $target->$prop) }}">
+															@elseif ($value['type'] == 'relationship')
+																{{ (new $value['model'])->find($row->$column)->$value['model_desc'] }}
+															@else
+																{{ $row->$column }}
+															@endif
+														</td>
 													@endif
 												@endforeach
 

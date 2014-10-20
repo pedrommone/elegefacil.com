@@ -29,6 +29,8 @@
 											<dd>{{ $value['options'][$target->$prop] }}</dd>
 										@elseif ($value['type'] == 'file')
 											<dd><img src="{{ asset('uploads/' . $target->$prop) }}"></dd>
+										@elseif ($value['type'] == 'relationship')
+											<dd>{{ (new $value['model'])->find($target->$prop)->$value['model_desc'] }}</dd>
 										@else
 											<dd>{{ $target->$prop }}</dd>
 										@endif
