@@ -94,6 +94,7 @@ class BaseController extends Controller {
 		if ($validator->fails())
 		{
 			return Redirect::back()
+				->withInput()
 				->withErrors($validator);
 		}
 		else
