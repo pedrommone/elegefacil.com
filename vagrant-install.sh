@@ -19,6 +19,14 @@ echo ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo ''
 
 # ---------------
+#  Force use Google public DNS
+# ---------------
+echo '- Setting up Google public DNS'
+echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/base
+echo "nameserver 8.8.4.4" >> /etc/resolvconf/resolv.conf.d/base
+resolvconf -u > /dev/null 2>&1
+
+# ---------------
 #  Various fixes
 # ---------------
 echo '- Fixing locales issues with Ubuntu'
@@ -36,7 +44,7 @@ dpkg-reconfigure -f noninteractive tzdata > /dev/null 2>&1
 #  Update and basic tools
 # ------------------------
 echo '- Updating repositories'
-apt-get update > /dev/null 2>&1
+apt-get update --fix-missing > /dev/null 2>&1
 
 echo '- Installing vim'
 apt-get install -y vim > /dev/null 2>&1
