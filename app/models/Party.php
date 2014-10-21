@@ -25,4 +25,14 @@ class Party extends Eloquent {
 	 */
 	protected $fillable = ['name', 'purpose', 'logo', 'abbreviation'];
 
+	/**
+	 * Faz com que o código seja preenchido com zero a esquerda 
+	 *
+	 * */
+	public function getIdAttribute($value)
+	{
+
+		return str_pad($value, 2, "0", STR_PAD_LEFT);
+	}
+
 }
