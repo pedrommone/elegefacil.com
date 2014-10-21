@@ -31,7 +31,7 @@ class DashboardController extends BaseController {
 		$voter = Voter::with('Section')
 			->findOrFail(Session::get('voter_id'));
 
-		if ($voter->voted_at == null)
+		if ($voter->voted_at == '0000-00-00 00:00:00')
 		{
 
 			return View::make('voter.dashboard.urna');
