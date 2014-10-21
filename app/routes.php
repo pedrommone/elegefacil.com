@@ -57,7 +57,6 @@ Route::group([
 			Route::controller('zones', 'ZonesController');
 			Route::controller('parties', 'PartiesController');
 			Route::controller('reports', 'ReportsController');
-
 		});
 
 	}
@@ -94,7 +93,6 @@ Route::group([
 			Route::controller('dashboard', 'DashboardController');
 			Route::controller('candidate-votes', 'CandidateVotesController');
 			Route::controller('candidates', 'CandidatesController');
-
 		});
 
 	}
