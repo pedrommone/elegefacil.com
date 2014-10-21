@@ -39,7 +39,7 @@ class DashboardController extends BaseController {
 		return Response::json($candidates);
 	}
 
-	public function getVote()
+	public function postVote()
 	{
 
 		if (Input::has('votes'))

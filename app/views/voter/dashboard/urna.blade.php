@@ -105,7 +105,7 @@
 				toggleConfirm('disabled');
 			});
 
-			$('.branco').on('click', function()
+			$('.anula').on('click', function()
 			{
 
 				vote();
