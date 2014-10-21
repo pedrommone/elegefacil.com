@@ -7,11 +7,19 @@
 	margin: 5%;
 	background-color: black;
 	border-radius: 10px;
+	box-sizing: border-box;
 }
 
-.start-screen .info-block { background-color: #E8E8E8; }
-.start-screen .info-block p { padding: 10px; }
-.start-screen .start-voting { background-color: #FFCC66; }
+.start-screen .info-block {
+	border: 1px solid #A5A5A5;
+	background-color: #E8E8E8;
+	padding: 10px;
+}
+
+.start-screen .start-voting {
+	border: 1px solid #FFAE0D;
+	background-color: #FFCC66;
+}
 
 .start-screen .start-voting a {
 	width: 80%;
