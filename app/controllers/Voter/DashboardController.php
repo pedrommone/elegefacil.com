@@ -1,10 +1,12 @@
 <?php namespace Voter;
 
 use BaseController;
+use Carbon\Carbon;
 use CandidateType;
 use CandidateVote;
 use Candidate;
 use Response;
+use Redirect;
 use Session;
 use Voter;
 use Input;
@@ -26,7 +28,19 @@ class DashboardController extends BaseController {
 	public function getUrna()
 	{
 
-		return View::make('voter.dashboard.urna');
+		$voter = Voter::with('Section')
+			->findOrFail(Session::get('voter_id'));
+
+		if ($voter->voted_at == null)
+		{
+
+			return View::make('voter.dashboard.urna');
+		}
+		else
+		{
+
+			return Redirect::to('voter/dashboard');
+		}
 	}
 
 	public function getCandidates()
@@ -71,6 +85,9 @@ class DashboardController extends BaseController {
 					unset($vote);
 				}
 			}
+
+			$voter->voted_at = Carbon::now();
+			$voter->save();
 		}
 	}
 }
