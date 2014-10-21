@@ -34,4 +34,14 @@ class Zone extends Eloquent {
 		return $this->hasMany('Section');
 	}
 
+	/**
+	 * Faz com que o código seja preenchido com zero a esquerda 
+	 *
+	 * */
+	public function getIdAttribute($value)
+	{
+
+		return str_pad($value, 3, "0", STR_PAD_LEFT);
+	}
+
 }
