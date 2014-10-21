@@ -23,7 +23,7 @@
 				</div>
 
 				<div class="span6 start-voting text-center">
-					<a id="start-voting" href="#" class="btn btn-warning">Iniciar votação</a>
+					<a id="start-voting" href="{{ url('voter/dashboard/urna') }}" class="btn btn-warning">Iniciar votação</a>
 				</div>
 
 			</div>
