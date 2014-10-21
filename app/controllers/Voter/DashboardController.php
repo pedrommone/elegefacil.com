@@ -2,9 +2,12 @@
 
 use BaseController;
 use CandidateType;
+use CandidateVote;
+use Candidate;
 use Response;
 use Session;
 use Voter;
+use Input;
 use View;
 
 class DashboardController extends BaseController {
@@ -34,5 +37,40 @@ class DashboardController extends BaseController {
 			->get();
 
 		return Response::json($candidates);
+	}
+
+	public function getVote()
+	{
+
+		if (Input::has('votes'))
+		{
+
+			$votes = Input::get('votes');
+
+			$voter = Voter::with('Section', 'Section.Zone')
+				->findOrFail(Session::get('voter_id'));
+
+			foreach ($votes as $candidate_target)
+			{
+
+				$candidate = Candidate::find($candidate_target);
+
+				if ($candidate)
+				{
+
+					$vote = new  CandidateVote;
+
+					$vote->candidate_id = $candidate->id;
+					$vote->city = $voter->section->zone->city;
+					$vote->state = $voter->section->zone->state;
+					$vote->gender = $voter->gender;
+					$vote->age = 20;
+
+					$vote->save();
+
+					unset($vote);
+				}
+			}
+		}
 	}
 }

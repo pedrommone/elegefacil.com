@@ -57,9 +57,14 @@
 
 						</form>
 					</section>
-
 				</div>
 
+			</div>
+
+			<div id="obrigado" class="hero-unit">
+				<h1>Obrigado!</h1>
+
+				<p>O seu voto é muito importante para o Brasil.</p>
 			</div>
 
 		</div>
@@ -110,7 +115,15 @@
 			{
 
 				if (validNumber)
+				{
+
 					vote(parseInt($('.numero').html()) % 1000);
+				}
+				else
+				{
+
+					vote();
+				}
 			});
 
 			var clearScreen = function()
@@ -184,6 +197,21 @@
 
 				toggleNumbers('disabled');
 				toggleActions('disabled');
+
+				$.ajax({
+					url: '{{ url('voter/dashboard/vote') }}',
+					type: 'POST',
+					dataType: 'json',
+					data: {
+						votes: votes
+					}
+				})
+				.done(function(response)
+				{
+
+					$('#urna').hide();
+					$('#obrigado').fadeIn(300);
+				});
 			}
 
 			var toggleNumbers = function(status)

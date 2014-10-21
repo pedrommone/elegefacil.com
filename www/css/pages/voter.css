@@ -103,3 +103,8 @@
 #urna .colinha li strong{font-weight:bold;}
 
 #urna figure { display: none; }
+
+#obrigado {
+	margin-top: 50px;
+	display: none;
+}
