@@ -18,7 +18,7 @@ class Candidate extends Eloquent {
 	 *
 	 * @var array
 	 */
-	protected $hidden = [];
+	protected $hidden = ['candidate_type_id'];
 	
 	/**
 	 * The fillable property specifies which attributes should
