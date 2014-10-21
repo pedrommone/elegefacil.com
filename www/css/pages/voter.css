@@ -1,0 +1,21 @@
+.start-screen .info-block,
+.start-screen .start-voting {
+	display: block;
+	float: left;
+	height: 300px;
+	width: 40%;
+	margin: 5%;
+	background-color: black;
+	border-radius: 10px;
+}
+
+.start-screen .info-block { background-color: #E8E8E8; }
+.start-screen .info-block p { padding: 10px; }
+.start-screen .start-voting { background-color: #FFCC66; }
+
+.start-screen .start-voting a {
+	width: 80%;
+	height: 50px;
+	line-height: 50px;
+	margin-top: 125px;
+}
