@@ -60,7 +60,8 @@ Route::filter('auth.admin', function()
 Route::filter('auth.voter', function()
 {
 
-	return (Session::get('voter_logged_in', 0) == 1);
+	if (Session::get('voter_logged_in') == 0)
+		return Redirect::route('voter.login');
 });
 
 

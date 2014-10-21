@@ -1,22 +1,25 @@
 <?php namespace Voter;
 
-use \BaseController as BaseController;
-use \Validator as Validator;
-use \Redirect as Redirect;
-use \Session as Session;
-use \Input as Input;
-use \Voter as Voter;
-use \View as View;
+use BaseController;
+use Validator;
+use Redirect;
+use Session;
+use Input;
+use Voter;
+use View;
+use Auth;
 
 class AuthController extends BaseController {
 
 	public function getLogin()
 	{
+
 		return View::make('voter.login.index');
 	}
 
 	public function postLogin()
 	{
+
 		$validator = Validator::make(Input::all(),
 			array('id' => 'required'),
 			array('birthday' => 'required')
@@ -52,11 +55,13 @@ class AuthController extends BaseController {
 		}
 	}
 
-	public function getLogout() {
+	public function getLogout()
+	{
+
 		Session::put('voter_logged_in', 0);
 		Session::put('voter_id', null);
 
-		return Redirect::to('voter/login');
+		return Redirect::route('voter.login');
 	}
 
 }

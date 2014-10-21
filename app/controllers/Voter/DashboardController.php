@@ -1,4 +1,4 @@
-<?php namespace Admin;
+<?php namespace Voter;
 
 use BaseController;
 use View;
@@ -7,7 +7,7 @@ class DashboardController extends BaseController {
 
 	public function getIndex()
 	{
-		
-		return View::make('admin.dashboard.index');
+
+		return View::make('voter.dashboard.index');
 	}
 }
