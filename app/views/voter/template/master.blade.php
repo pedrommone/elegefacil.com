@@ -18,6 +18,9 @@
 		<link href="{{ url('css/pages/voter.css') }}" rel="stylesheet" type="text/css">
 	</head>
 
+	<script src="{{ url('js/jquery-1.7.2.min.js') }}"></script>  
+	<script src="{{ url('js/bootstrap.js') }}"></script>
+
 	<body>
 
 		<div class="navbar navbar-fixed-top">
@@ -94,12 +97,5 @@
 			<!-- /footer-inner --> 
 		</div>
 		<!-- /footer --> 
-
-		<!-- Le javascript
-		================================================== --> 
-		<!-- Placed at the end of the document so the pages load faster --> 
-		<script src="{{ url('js/jquery-1.7.2.min.js') }}"></script>  
-		<script src="{{ url('js/bootstrap.js') }}"></script>
-
 	</body>
 </html>
