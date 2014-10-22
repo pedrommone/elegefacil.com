@@ -88,7 +88,7 @@ class TransparenciaCandidatos extends Command {
 		foreach ($estados as $estado_id => $estado)
 		{
 
-			$this->info("Carregando os candidatos de $estado->sigla ($estado_id/" . count($estados) . ")");
+			$this->info("Carregando os candidatos de $estado->sigla ($estado_id/" . count($estado) . ")");
 
 			foreach ($cargos as $cargo_nome => $cargo_id)
 			{
