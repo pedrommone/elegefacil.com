@@ -23,20 +23,6 @@ class PartiesController extends BaseController {
 			'validation' => 'required|max:45',
 			'show_list' => true
 		],
-		'purpose' => [
-			'name' => 'Propósito',
-			'type' => 'textarea',
-			'casting' => 'string',
-			'validation' => 'required|max:500',
-			'show_list' => true
-		],
-		'logo' => [
-			'name' => 'Logo',
-			'type' => 'file',
-			'casting' => 'file',
-			'validation' => 'required',
-			'show_list' => false
-		],
 		'abbreviation' => [
 			'name' => 'Sigla',
 			'type' => 'text',
