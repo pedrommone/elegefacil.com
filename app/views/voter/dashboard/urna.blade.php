@@ -63,7 +63,6 @@
 
 			<div id="obrigado" class="hero-unit">
 				<h1>Obrigado!</h1>
-
 				<p>O seu voto é muito importante para o Brasil.</p>
 			</div>
 
@@ -75,8 +74,7 @@
 		{
 			var votes = [],
 				 currentType = 0,
-				 candidates = null,
-				 validNumber = false;
+				 candidates = null;
 
 			$('.digitar').on('click', function()
 			{
@@ -113,17 +111,12 @@
 
 			$('.conf').on('click', function()
 			{
+				console.log($('.branco').text().length);
 
-				if (validNumber)
-				{
-
+				if ($('.branco').text().length == 0)
 					vote(parseInt($('.numero').html()) % 1000);
-				}
 				else
-				{
-
 					vote();
-				}
 			});
 
 			var clearScreen = function()
@@ -154,18 +147,16 @@
 
 					if (candidate.vote_number == id)
 					{
-
 						$('.nome').html(candidate.nickname);
 						$('.partido').html(candidate.party.name);
+						$('.branco').html('');
 						$('img').attr('src', "{{ url('uploads') }}/" + candidate.picture);
 
-						validNumber = true;
+						return;
 					}
 					else
 					{
 						$('.branco').html('Voto nulo');
-
-						validNumber = false;
 					}
 				}
 			}
@@ -173,12 +164,12 @@
 			var vote = function(candidate)
 			{
 
+				console.log(votes, candidate);
+
 				if (candidate)
 					votes.push(candidate);
 
-				currentType++;
-
-				if (typeof candidates[currentType] == 'undefined')
+				if (typeof candidates[++currentType] == 'undefined')
 				{
 
 					finishVote();
@@ -201,9 +192,8 @@
 				$.ajax({
 					url: '{{ url('voter/dashboard/vote') }}',
 					type: 'POST',
-					dataType: 'json',
 					data: {
-						votes: votes
+						"votes": votes
 					}
 				})
 				.done(function(response)
@@ -212,6 +202,8 @@
 					$('#urna').hide();
 					$('#obrigado').fadeIn(300);
 				});
+
+				console.log(votes);
 			}
 
 			var toggleNumbers = function(status)
