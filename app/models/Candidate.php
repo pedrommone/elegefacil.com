@@ -5,7 +5,7 @@ class Candidate extends Eloquent {
 	use SoftDeletingTrait;
 
 	protected $dates = ['voted_at'];
-	protected $appends = ['vote_number'];
+	protected $appends = ['vote_number', 'total_votes'];
 
 	/**
 	 * The database table used by the model.
@@ -85,6 +85,16 @@ class Candidate extends Eloquent {
 	{
 
 		return $this->party_id . $this->id;
+	}
+
+	/**
+	 * Soma o total de votos 
+	 *
+	 * */
+	public function getTotalVotesAttribute()
+	{
+
+		return $this->votes()->count();
 	}
 
 }
