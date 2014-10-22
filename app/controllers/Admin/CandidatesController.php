@@ -47,13 +47,6 @@ class CandidatesController extends BaseController {
 			'validation' => 'required|max:100',
 			'show_list' => true
 		],
-		'slogan' => [
-			'name' => 'Slogan',
-			'type' => 'text',
-			'casting' => 'string',
-			'validation' => 'required|max:100',
-			'show_list' => true
-		],
 		'picture' => [
 			'name' => 'Foto',
 			'type' => 'file',
