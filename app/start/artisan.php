@@ -13,3 +13,4 @@
 
 Artisan::add(new DeployMake);
 Artisan::add(new TransparenciaPartidos);
+Artisan::add(new TransparenciaCargos);
