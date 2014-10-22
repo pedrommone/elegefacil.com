@@ -12,3 +12,4 @@
 */
 
 Artisan::add(new DeployMake);
+Artisan::add(new TransparenciaPartidos);
