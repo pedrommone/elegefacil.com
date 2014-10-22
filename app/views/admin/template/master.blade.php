@@ -77,7 +77,7 @@
 						<li{{ (Request::segment(2) == 'candidate-type' ? ' class="active"' : null) }}>
 							<a href="{{ url('admin/candidate-type') }}">
 								<i class="icon-list-alt"></i>
-								<span>Tipos de candidato</span>
+								<span>Cargos</span>
 							</a>
 						</li>
 

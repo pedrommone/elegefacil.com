@@ -28,7 +28,7 @@ class Candidate extends Eloquent {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nickname', 'full_name', 'slogan', 'picture', 'birthday'];
+	protected $fillable = ['nickname', 'full_name', 'slogan', 'picture', 'birthday', 'party_id', 'candidate_type_id'];
 
 	/**
 	 * Define a relationship com candidato

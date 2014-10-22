@@ -5,7 +5,7 @@ use BaseController;
 class CandidateTypeController extends BaseController {
 
 	protected $model = 'CandidateType';
-	protected $title = 'tipo de candidados';
+	protected $title = 'cargos';
 	protected $uri = 'candidate-type';
 
 	protected $properties = [
