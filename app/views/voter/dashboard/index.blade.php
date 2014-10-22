@@ -23,7 +23,7 @@
 				</div>
 
 				<div class="span6 start-voting text-center">
-					@if ($voter->voted_at == null)
+					@if ($voter->voted_at == '0000-00-00 00:00:00')
 						<a id="start-voting" href="{{ url('voter/dashboard/urna') }}" class="btn btn-warning">Iniciar votação</a>
 					@else
 						<a href="#" class="btn btn-warning" disabled>Obrigado pelo seu voto!</a>
