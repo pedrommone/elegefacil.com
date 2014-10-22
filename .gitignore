@@ -15,4 +15,5 @@ Thumbs.db
 /logs
 /public_shtml
 /public_html
+/www/uploads
 /app/config/production/remote.php
