@@ -65,13 +65,13 @@ class TransparenciaCargos extends Command {
 
 		$this->info('Iniciando a requisição para o webservice');
 
-		$partidos = $this->makeRequest('cargos');
+		$cargos = $this->makeRequest('cargos');
 
-		$this->info('Foram encontrados ' . count($partidos) . ' cargos.');
+		$this->info('Foram encontrados ' . count($cargos) . ' cargos.');
 
-		foreach ($partidos as $partido)
+		foreach ($cargos as $cargo)
 			CandidateType::create([
-				'type' => $partido->nome
+				'type' => ucfirst(strtolower(str_replace('º', '', (string) $cargo->nome)))
 			]);
 
 		$this->info('Procedimento concluido com sucesso');
