@@ -85,10 +85,10 @@ class TransparenciaCandidatos extends Command {
 		$partidos = Party::all()->lists('id', 'abbreviation');
 		$this->info('Foram encontrados ' . count($partidos) . ' partidos');
 
-		foreach ($estados as $estado_i => $estado)
+		foreach ($estados as $estado_id => $estado)
 		{
 
-			$this->info('Carregando os candidatos de ' . $estado->sigla);
+			$this->info("Carregando os candidatos de $estado->sigla ($estado_id/" . count($estados) . ")");
 
 			foreach ($cargos as $cargo_nome => $cargo_id)
 			{
