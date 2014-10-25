@@ -2,9 +2,12 @@
 
 class DeployController extends BaseController {
 
-	public function getDeploy() {
+	public function getDeploy()
+	{
 
-		try {
+		try
+		{
+
 			Artisan::call('deploy:make');
 
 			Log::info('Deployment procedure done.');
@@ -14,7 +17,10 @@ class DeployController extends BaseController {
 				'message' => 'Everything went well.'
 			], 200);
 
-		} catch (Exception $e) {
+		}
+		catch (Exception $e)
+		{
+			
 			Log::error('Hey, something went very wrong with deployment.');
 
 			Response::json([
@@ -24,5 +30,4 @@ class DeployController extends BaseController {
 		}
 		
 	}
-
 }

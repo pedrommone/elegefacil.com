@@ -38,7 +38,7 @@ class CandidateType extends Eloquent {
 	 * */
 	public function candidates() {
 
-		return $this->belongsToMany('Candidate');
+		return $this->hasMany('Candidate');
 	}
 
 }

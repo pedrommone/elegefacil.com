@@ -45,4 +45,14 @@ class Section extends Eloquent {
 		return $this->hasMany('Voter');
 	}
 
+	/**
+	 * Faz com que o código seja preenchido com zero a esquerda 
+	 *
+	 * */
+	public function getIdAttribute($value)
+	{
+
+		return str_pad($value, 4, "0", STR_PAD_LEFT);
+	}
+
 }

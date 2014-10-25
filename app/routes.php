@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function(){ return Redirect::route('voter.login'); });
+Route::get('/', function() { return Redirect::route('voter.login'); });
 
 Route::any('deploy', [
 	'as' => 'internal.deploy',
@@ -23,7 +23,8 @@ Route::group([
 		'namespace' => 'Admin'
 	],
 
-	function() {
+	function()
+	{
 
 		Route::get('/', function() { return Redirect::route('admin.login'); });
 
@@ -42,7 +43,8 @@ Route::group([
 			'uses' => 'AuthController@getLogout'
 		]);
 
-		Route::group(['before' => 'auth.admin'], function() {
+		Route::group(['before' => 'auth.admin'], function()
+		{
 
 			Route::controller('dashboard', 'DashboardController');
 			Route::controller('candidate-type', 'CandidateTypeController');
@@ -53,7 +55,6 @@ Route::group([
 			Route::controller('zones', 'ZonesController');
 			Route::controller('parties', 'PartiesController');
 			Route::controller('reports', 'ReportsController');
-
 		});
 
 	}
@@ -64,9 +65,10 @@ Route::group([
 		'namespace' => 'Voter'
 	],
 
-	function() {
+	function()
+	{
 
-		Route::get('/', function(){ return Redirect::route('voter.login'); });
+		Route::get('/', function() { return Redirect::route('voter.login'); });
 
 		Route::get('login', [
 			'as' => 'voter.login',
@@ -76,14 +78,19 @@ Route::group([
 		Route::post('login', [
 			'as' => 'voter.validate',
 			'uses' => 'AuthController@postLogin'
-		]);	
+		]);
 
-		Route::group(['before' => 'auth.voter'], function() {
+		Route::get('logout', [
+			'as' => 'voter.logout',
+			'uses' => 'AuthController@getLogout'
+		]);
 
-			Route::get('dashboard', function() {
-				return "dashboard";
-			});
+		Route::group(['before' => 'auth.voter'], function()
+		{
 
+			Route::controller('dashboard', 'DashboardController');
+			Route::controller('candidate-votes', 'CandidateVotesController');
+			Route::controller('candidates', 'CandidatesController');
 		});
 
 	}
