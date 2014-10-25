@@ -34,6 +34,11 @@
 				</div>
 			</div>
 
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script>
+				google.load("visualization", "1", {packages:["corechart"]});
+			</script>
+
 			<!-- /row -->
 
 			@foreach (array_chunk($candidate_types, 2) as $sub_group)
@@ -50,7 +55,7 @@
 								</div> <!-- /widget-header -->
 
 								<div class="widget-content">
-									<canvas class="chart-{{ $graph['id'] }} chart-holder" height="250" width="538"></canvas>
+									<div id="chart-{{ $graph['id'] }}" class="chart-holder" height="250" width="538"></div>
 								</div> <!-- /widget-content -->
 
 							</div> <!-- /widget -->
@@ -60,17 +65,16 @@
 							$(document).ready(function()
 							{	
 
-								var pieData = [
-									@foreach ($graph['candidates'] as $candidate)
-										{
-											label: "{{ $candidate['nickname'] }}",
-											value: {{ $candidate['total_votes'] }}
-										},
-									@endforeach
-								];
+								var data = google.visualization.arrayToDataTable([
+						          ['Candidato', 'Votos'],
+						          @foreach ($graph['candidates'] as $candidate)
+						          	["{{ $candidate['nickname'] }}", {{ $candidate['total_votes'] }}]{{ ($candidate['id'] == end($graph['candidates'])['id'] ? '' : ',') }}
+						          @endforeach
+						        ]);
 
-								var myPie = new Chart(document.getElementsByClassName("chart-{{ $graph['id'] }}")[0].getContext("2d")).Pie(pieData);
+						        var chart = new google.visualization.PieChart(document.getElementById("chart-{{ $graph['id'] }}"));
 
+						        chart.draw(data);
 							});
 						</script>
 					@endforeach
