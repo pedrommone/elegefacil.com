@@ -15,7 +15,7 @@
 				<div class="span12">
 					<div class="info-box">
 						<div class="row-fluid stats-box">
-							<div class="span4">
+							<div class="span6">
 								<div class="stats-box-title">Total de votos</div>
 								<div class="stats-box-all-info">
 									<i class="icon-user" style="color:#3366cc;"></i>
@@ -23,18 +23,10 @@
 								</div>
 							</div>
 
-							<div class="span4">
-								<div class="stats-box-title">Total de votos nulos</div>
-								<div class="stats-box-all-info"><i class="icon-thumbs-up"  style="color:#F30"></i>
-									66.66
-								</div>
-							</div>
-
-							<div class="span4">
+							<div class="span6">
 								<div class="stats-box-title">Porcentagem de eleitores que votaram</div>
-								<div class="stats-box-all-info">
-									<i class="icon-shopping-cart" style="color:#3C3"></i>
-									15.55
+								<div class="stats-box-all-info"><i class="icon-thumbs-up"  style="color:#F30"></i>
+									{{ ($total_regular_voters * 100) / $total_voters  }}%
 								</div>
 							</div>
 						</div>
