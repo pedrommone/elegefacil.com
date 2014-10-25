@@ -28,14 +28,14 @@ class VotersController extends BaseController {
 			'name' => 'Nome',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:100',
+			'validation' => 'required|max:100|alpha_spaces',
 			'show_list' => true
 		],
 		'gender' => [
 			'name' => 'Sexualidade',
 			'type' => 'select',
 			'casting' => 'string',
-			'validation' => 'required',
+			'validation' => 'required|in:M,F',
 			'show_list' => true,
 			'options' => ['M' => 'Masculino', 'F' => 'Feminino']
 		],

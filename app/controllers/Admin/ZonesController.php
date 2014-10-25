@@ -20,14 +20,14 @@ class ZonesController extends BaseController {
 			'name' => 'Estado',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:100',
+			'validation' => 'required|max:100|alpha_spaces',
 			'show_list' => true
 		],
 		'city' => [
 			'name' => 'Cidade',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:100',
+			'validation' => 'required|max:100|alpha_spaces',
 			'show_list' => true
 		]
 	];

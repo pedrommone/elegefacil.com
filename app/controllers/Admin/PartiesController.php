@@ -20,7 +20,7 @@ class PartiesController extends BaseController {
 			'name' => 'Nome',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:45',
+			'validation' => 'required|max:45|alpha_spaces',
 			'show_list' => true
 		],
 		'purpose' => [

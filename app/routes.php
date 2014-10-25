@@ -46,9 +46,7 @@ Route::group([
 
 			Route::controller('dashboard', 'DashboardController');
 			Route::controller('candidate-type', 'CandidateTypeController');
-			Route::controller('candidate-votes', 'CandidateVotesController');
 			Route::controller('candidates', 'CandidatesController');
-			Route::controller('candidate-parties', 'CandidatePartiesController');
 			Route::controller('sections', 'SectionsController');
 			Route::controller('users', 'UsersController');
 			Route::controller('voters', 'VotersController');
