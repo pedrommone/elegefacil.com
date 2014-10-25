@@ -20,14 +20,14 @@ class UsersController extends BaseController {
 			'name' => 'Usuário',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:50|alpha_spaces',
+			'validation' => 'required|min:1|max:50|alpha_spaces',
 			'show_list' => true
 		],
 		'password' => [
 			'name' => 'Senha',
 			'type' => 'password',
 			'casting' => 'string',
-			'validation' => 'required|max:30',
+			'validation' => 'required|min:1|max:30',
 			'show_list' => false,
 			'hide_view' => true
 		]

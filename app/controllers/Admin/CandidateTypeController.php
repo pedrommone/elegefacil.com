@@ -20,7 +20,7 @@ class CandidateTypeController extends BaseController {
 			'name' => 'Descrição',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:50|alpha_spaces',
+			'validation' => 'required|min:1|max:50|alpha_spaces',
 			'show_list' => true
 		]
 	];

@@ -20,14 +20,14 @@ class PartiesController extends BaseController {
 			'name' => 'Nome',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:45|alpha_spaces',
+			'validation' => 'required|min:1|max:45|alpha_spaces',
 			'show_list' => true
 		],
 		'abbreviation' => [
 			'name' => 'Sigla',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:10',
+			'validation' => 'required|min:1|max:10',
 			'show_list' => true
 		]
 	];

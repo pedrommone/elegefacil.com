@@ -28,7 +28,7 @@ class VotersController extends BaseController {
 			'name' => 'Nome',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:100|alpha_spaces',
+			'validation' => 'required|min:1|max:100|alpha_spaces',
 			'show_list' => true
 		],
 		'gender' => [
@@ -43,7 +43,7 @@ class VotersController extends BaseController {
 			'name' => 'Data de nascimento',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|min:8|max:8',
+			'validation' => 'required|min:1|min:10|max:10|date_br',
 			'placeholder' => 'dd/mm/aaaa',
 			'show_list' => true
 		]

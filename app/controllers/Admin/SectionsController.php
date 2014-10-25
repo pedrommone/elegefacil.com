@@ -28,7 +28,7 @@ class SectionsController extends BaseController {
 			'name' => 'Endereço',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:100',
+			'validation' => 'required|min:1|max:100',
 			'show_list' => true
 		]
 	];

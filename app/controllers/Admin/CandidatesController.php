@@ -37,14 +37,14 @@ class CandidatesController extends BaseController {
 			'name' => 'Apelido',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:30|alpha_spaces',
+			'validation' => 'required|min:1|max:30|alpha_spaces',
 			'show_list' => true
 		],
 		'full_name' => [
 			'name' => 'Nome',
 			'type' => 'text',
 			'casting' => 'string',
-			'validation' => 'required|max:100|alpha_spaces',
+			'validation' => 'required|min:1|max:100|alpha_spaces',
 			'show_list' => true
 		],
 		'picture' => [
