@@ -2,7 +2,7 @@
 
 class Zone extends Eloquent {
 
-	protected $appeds = ['human_reference'];
+	use SoftDeletingTrait;
 
 	/**
 	 * The database table used by the model.
@@ -44,16 +44,6 @@ class Zone extends Eloquent {
 	{
 
 		return str_pad($value, 3, "0", STR_PAD_LEFT);
-	}
-
-	/**
-	 * Trás de forma mais legivel a zona 
-	 *
-	 */
-	public function getHumanReference()
-	{
-
-		return "$this->id, $this->city - $this->state";
 	}
 
 }

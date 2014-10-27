@@ -6,6 +6,7 @@ use Illuminate\Auth\UserInterface;
 class User extends Eloquent implements UserInterface {
 
 	use UserTrait;
+	use SoftDeletingTrait;
 
 	/**
 	 * The database table used by the model.
