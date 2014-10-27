@@ -26,7 +26,7 @@
 							<div class="span6">
 								<div class="stats-box-title">Porcentagem de eleitores que votaram</div>
 								<div class="stats-box-all-info"><i class="icon-thumbs-up"  style="color:#F30"></i>
-									{{ number_format(($total_regular_voters * 100) / $total_voters, 2, ',', '')  }}%
+									{{ number_format(((int) $total_regular_voters * 100) / (int) $total_voters, 2, ',', '')  }}%
 								</div>
 							</div>
 						</div>
