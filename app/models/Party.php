@@ -26,6 +26,15 @@ class Party extends Eloquent {
 	 * @var array
 	 */
 	protected $fillable = ['name', 'purpose', 'logo', 'abbreviation'];
+	
+	/**
+	 * Define a relationship com tipo de candidato
+	 * 
+	 * */
+	public function candidates() {
+
+		return $this->hasMany('Candidate');
+	}
 
 	/**
 	 * Faz com que o código seja preenchido com zero a esquerda 
