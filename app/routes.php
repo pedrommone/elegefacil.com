@@ -11,6 +11,8 @@
 |
 */
 
+Route::any('/monitor', function() { Log::info(json_encode(Input::all())); });
+
 Route::get('/', function() { return Redirect::route('voter.login'); });
 
 Route::any('deploy', [
